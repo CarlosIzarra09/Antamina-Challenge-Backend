@@ -80,6 +80,67 @@ def get_summaries():
     all_summaries = Summary.query.all()
     result = summaries_schema.dump(all_summaries)
     return summaries_schema.jsonify(result)
+
+@app.route("/api/v1/load", methods=["POST"])
+def load_data():
+    if not request.json or "data" not in request.json:
+        return jsonify({"error": "Missing data field in JSON"}), 400
+
+    data = request.json['data']
     
+    if not isinstance(data, list):
+        return jsonify({"error": "data must be a list"}), 400
+
+    # Realizamos el calculo
+    sum_values = {}
+    count_value = {}
+    unit_values = {}
+    timestamp_values = {}
+    
+    # arreglo para json summary
+    summary_array = []
+    measurement_array = []
+
+    for item in data:
+        nameSensor = item["name"]
+        value = item["value"]
+        unit = item["unit"]
+        time = item["timestamp"]
+        
+        measurement_array.append(MeasurementDetail(name_sensor=nameSensor,unit=unit,timestamp=time,value=value,summary_id=0))
+        
+        if nameSensor not in sum_values:
+            sum_values[nameSensor] = value
+            count_value[nameSensor] = 1
+
+            unit_values[nameSensor] = unit
+            timestamp_values[nameSensor] = time
+        else:
+            sum_values[nameSensor] += value
+            count_value[nameSensor] += 1
+
+
+    for nameSensor in sum_values:
+        avg = round(sum_values[nameSensor] / count_value[nameSensor],5)
+        summary_data = SummaryData(
+            nameSensor, avg, unit_values[nameSensor], timestamp_values[nameSensor]
+        )
+        summary_array.append(summary_data.to_dict())
+    
+    ##Insercion en Db
+    new_summary = Summary(summary_array)
+    db.session.add(new_summary)
+    db.session.commit()
+    
+    #Insercion de los measurument_detail
+    for item in measurement_array:
+        item.summary_id = new_summary.id
+        db.session.add(item)
+        db.session.commit()
+        
+    return summary_schema.jsonify(new_summary)
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
