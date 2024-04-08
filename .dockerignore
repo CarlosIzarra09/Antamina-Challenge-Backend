@@ -1,0 +1,8 @@
+.git
+.gitignore
+env
+evidencia
+__pycache__/
+.dockerignore
+Dockerfile
+README.md

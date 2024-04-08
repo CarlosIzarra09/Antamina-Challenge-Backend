@@ -6,4 +6,4 @@ RUN pip install -r requirements.txt
 COPY . /app
 
 EXPOSE 5000
-CMD ["python","-m","flask","run"]
+CMD ["python","-m","flask","--app","index.py","run"]
