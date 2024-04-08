@@ -38,7 +38,22 @@ class Summary(db.Model):
 
 with app.app_context():
     db.create_all()
-    
+
+class MeasurementDetailSchema(ma.Schema):
+    class Meta:
+        fields = ("id", "name_sensor", "value", "unit", "timestamp", "summary_id")
+
+
+class SummarySchema(ma.Schema):
+    class Meta:
+        fields = ("id", "data")
+
+
+measurement_detail_schema = MeasurementDetailSchema()
+measurements_detail_schema = MeasurementDetailSchema(many=True)
+
+summary_schema = SummarySchema()
+summaries_schema = SummarySchema(many=True)
     
 if __name__ == "__main__":
     app.run(debug=True)
