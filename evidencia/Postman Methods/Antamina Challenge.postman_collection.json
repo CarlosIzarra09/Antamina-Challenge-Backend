@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "5288a468-ea8f-438f-893a-e6a1d2ccdaf9",
+		"name": "Antamina Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14480983"
+	},
+	"item": [
+		{
+			"name": "load-data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": [\r\n        {\"name\": \"temperatura\", \"value\": 88, \"unit\": \"celsius\", \"timestamp\": \"2023-04-17T17:00:50\"},\r\n        {\"name\":\"temperatura\", \"value\": 20, \"unit\": \"celsius\", \"timestamp\": \"2023-04-17T17:05:50\"},\r\n        {\"name\":\"temperatura\", \"value\": 20, \"unit\": \"celsius\", \"timestamp\": \"2023-04-17T17:10:50\"},\r\n        {\"name\":\"inclinación\", \"value\": 30, \"unit\": \"grades\",  \"timestamp\": \"2023-04-17T17:00:50\"},\r\n        {\"name\":\"inclinación\", \"value\": 40, \"unit\": \"grades\",  \"timestamp\": \"2023-04-17T17:10:50\"},\r\n        {\"name\":\"inclinación\", \"value\": 30, \"unit\": \"grades\",  \"timestamp\": \"2023-04-17T17:15:50\"},\r\n        {\"name\":\"humedad\", \"value\": 30, \"unit\": \"g/m3\",  \"timestamp\": \"2023-04-17T17:00:50\"}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/v1/load",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"load"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "load-data example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\": [\r\n        {\"name\": \"temperatura\", \"value\": 88, \"unit\": \"celsius\", \"timestamp\": \"2023-04-17T17:00:50\"},\r\n        {\"name\":\"temperatura\", \"value\": 20, \"unit\": \"celsius\", \"timestamp\": \"2023-04-17T17:05:50\"},\r\n        {\"name\":\"temperatura\", \"value\": 20, \"unit\": \"celsius\", \"timestamp\": \"2023-04-17T17:10:50\"},\r\n        {\"name\":\"inclinación\", \"value\": 30, \"unit\": \"grades\",  \"timestamp\": \"2023-04-17T17:00:50\"},\r\n        {\"name\":\"inclinación\", \"value\": 40, \"unit\": \"grades\",  \"timestamp\": \"2023-04-17T17:10:50\"},\r\n        {\"name\":\"inclinación\", \"value\": 30, \"unit\": \"grades\",  \"timestamp\": \"2023-04-17T17:15:50\"},\r\n        {\"name\":\"humedad\", \"value\": 30, \"unit\": \"g/m3\",  \"timestamp\": \"2023-04-17T17:00:50\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/v1/load",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"load"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.2 Python/3.11.0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Apr 2024 04:30:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "468"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"average_value\": 42.66667,\n            \"name_sensor\": \"temperatura\",\n            \"timestamp\": \"2023-04-17T17:00:50\",\n            \"unit\": \"celsius\"\n        },\n        {\n            \"average_value\": 33.33333,\n            \"name_sensor\": \"inclinación\",\n            \"timestamp\": \"2023-04-17T17:00:50\",\n            \"unit\": \"grades\"\n        },\n        {\n            \"average_value\": 30,\n            \"name_sensor\": \"humedad\",\n            \"timestamp\": \"2023-04-17T17:00:50\",\n            \"unit\": \"g/m3\"\n        }\n    ],\n    \"id\": 15\n}"
+				}
+			]
+		},
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/v1/list",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "response-example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/v1/list",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.2 Python/3.11.0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Apr 2024 01:08:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6355"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"data\": [\n            {\n                \"average_value\": 90,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 40,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 30,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 1\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 90,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 40,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 30,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 2\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 90,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 40,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 30,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 3\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 90,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 40,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 30,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 4\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 90,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 40,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 30,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 5\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 90,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 40,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 30,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 6\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 90,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 40,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 30,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 7\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 53.333333333333336,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 53.333333333333336,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 80,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 8\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 53.33333,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 53.33333,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 80,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 9\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 53.33333,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 53.33333,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 80,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 10\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 42.66667,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 33.33333,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            },\n            {\n                \"average_value\": 80,\n                \"name_sensor\": \"humedad\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"g/m3\"\n            }\n        ],\n        \"id\": 11\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 42.66667,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 33.33333,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            }\n        ],\n        \"id\": 12\n    },\n    {\n        \"data\": [\n            {\n                \"average_value\": 42.66667,\n                \"name_sensor\": \"temperatura\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"celsius\"\n            },\n            {\n                \"average_value\": 33.33333,\n                \"name_sensor\": \"inclinación\",\n                \"timestamp\": \"2023-04-17T17:00:50\",\n                \"unit\": \"grades\"\n            }\n        ],\n        \"id\": 13\n    }\n]"
+				}
+			]
+		}
+	]
+}
