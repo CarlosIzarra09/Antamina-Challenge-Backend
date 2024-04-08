@@ -54,6 +54,12 @@ measurements_detail_schema = MeasurementDetailSchema(many=True)
 
 summary_schema = SummarySchema()
 summaries_schema = SummarySchema(many=True)
+
+@app.route("/api/v1/list", methods=["GET"])
+def get_summaries():
+    all_summaries = Summary.query.all()
+    result = summaries_schema.dump(all_summaries)
+    return summaries_schema.jsonify(result)
     
 if __name__ == "__main__":
     app.run(debug=True)
